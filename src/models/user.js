@@ -2,11 +2,25 @@ import { model, Schema } from 'mongoose';
 
 const userSchema = new Schema(
   {
-    username: { type: String, trim: true },
-    email: { type: String, unique: true, required: true, trim: true },
-    password: { type: String, required: true },
+    username: {
+      type: String,
+      trim: true,
+    },
+    email: {
+      type: String,
+      unique: true,
+      required: true,
+      trim: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+    versionKey: false,
+  },
 );
 
 userSchema.pre('save', function () {
